@@ -1,0 +1,26 @@
+body{
+    background-color: rgb(230, 189, 195); 
+}
+
+#contenido-body{
+    width: 70%;
+    margin-left: 20%;
+    background-color: white;
+}
+
+#lista-productos{
+    display: flex; 
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+    margin: 2%;
+}
+
+#carrito{
+    width: 25%;
+    text-align: center;
+    margin: 5% auto auto auto;
+    padding-bottom: 5%;
+}
