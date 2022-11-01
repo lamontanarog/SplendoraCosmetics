@@ -25,10 +25,31 @@
                         <li class="nav-item"><a class="nav-link" href="tienda.html">Tienda</a></li>
                     </ul>
                     <form class="d-flex">
-                        <button class="btn btn-outline-danger" type="submit">
-                            <i class="bi-cart-fill me-1"></i>
-                            carrito
-                        </button>
+                        <div class="dropdown">
+                            <button class="btn btn-outline-danger" class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true" >
+                                <i class="bi-cart-fill me-1"></i>
+                                Carrito 
+                            </button>
+                            <ul class="dropdown-menu">
+                                <section>
+                                    <div id="carrito">
+                                        <h4>Tu carrito:</h4>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Nombre</th>
+                                                    <th scope="col">Marca</th>
+                                                    <th scope="col">Precio</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="tabla-body"></tbody>
+                                        </table>
+                                        <h4 id="total-carrito"> Total a pagar: </h4>
+                                    </div>
+                                </section>
+                                </ul>
+                        </div >
                     </form>
                 </div>
             </div>

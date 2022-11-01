@@ -19,8 +19,13 @@ body{
 }
 
 #carrito{
-    width: 25%;
     text-align: center;
     margin: 5% auto auto auto;
     padding-bottom: 5%;
+}
+
+#pais{
+    margin-left: 10px;
+    margin-top: 5px;
+    font-family: sans-serif, Arial, Helvetica;
 }

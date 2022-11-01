@@ -2,6 +2,25 @@ const carrito = [];
 let totalCarrito;
 let contenedor = document.getElementById("lista-productos");
 
+function preguntarPais() {
+    if (localStorage.key("pais")) {
+        document.getElementById("pais").innerHTML +=
+        `
+        <p>${localStorage.getItem("pais")}</P>
+        `
+    }
+
+    else{
+    let traerPais = prompt("Ingrese su pais");
+    localStorage.setItem("pais",traerPais);
+    document.getElementById("pais").innerHTML +=
+    `
+    <p>${localStorage.getItem("pais")}</P>
+    `
+    }
+}
+preguntarPais();
+
 function mostrarProductos() {
     for (const producto of productos) {
         contenedor.innerHTML += `
@@ -13,7 +32,8 @@ function mostrarProductos() {
                 <p class="card-text">${producto.nombre}</p>
                 <p class="card-text">${producto.marca}</p>
                 <p class="card-text">$ ${producto.precio}</p>
-            <button id="btn${producto.id}" class="btn btn-outline-danger">agregar al carrito</button>
+            <button id="btn${producto.id}" 
+            class="btn btn-outline-danger">agregar al carrito</button>
             </div>
         </div>
         `;
@@ -31,7 +51,6 @@ function agregarAlCarrito(ProdAComprar){
     carrito.push(ProdAComprar);
     console.table(carrito)
     alert("Producto: " +ProdAComprar.nombre+ " Agregado al carrito");
-
     document.getElementById("tabla-body").innerHTML +=  `
     <tr> 
       <td>${ProdAComprar.id}</td>
@@ -41,7 +60,7 @@ function agregarAlCarrito(ProdAComprar){
     </tr>`;
     totalCarrito = carrito.reduce((acumulador,producto)=> acumulador + producto.precio,0);
     let infoTotal = document.getElementById("total-carrito");
-    infoTotal.innerText="Total a pagar $: "+totalCarrito;
+    infoTotal.innerText="Total a pagar:  $"+totalCarrito;
 
 }
 
