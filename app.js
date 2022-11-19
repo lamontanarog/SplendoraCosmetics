@@ -1,5 +1,3 @@
-const { default: Swal } = require("sweetalert2");
-
 let productosJSON= [];
 let totalCarrito;
 let dolarCompra;
@@ -96,7 +94,7 @@ function agregarAlCarrito(ProdAComprar){
 function finalizarCompra(){
     Swal.fire({
         title : 'Desea finalizar la compra?'
-        
+
     })
 }
 
