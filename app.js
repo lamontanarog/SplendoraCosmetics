@@ -1,8 +1,10 @@
+
 let productosJSON= [];
 let totalCarrito;
 let dolarCompra;
 let contenedor = document.getElementById("lista-productos");
 let carrito =  [];
+document.getElementById('button1').onclick = finalizarCompra;
 obtenerDolar();
 
 
@@ -87,15 +89,37 @@ function agregarAlCarrito(ProdAComprar){
     totalCarrito = carrito.reduce((acumulador,producto)=> acumulador + producto.precio*dolarCompra,0);
     let infoTotal = document.getElementById("total-carrito");
     infoTotal.innerText="Total a pagar:  $"+totalCarrito;
-    
-    
 }
 
-function finalizarCompra(){
+async function finalizarCompra(){ 
+    if(carrito.length>0){
+        const { value: email } = await Swal.fire({
+            title: 'Finalizar compra',
+            input: 'email',
+            inputLabel: 'Ingrese el mail donde le llegará la factura digital',
+            inputPlaceholder: 'ingrese su mail'
+          })
+          
+          if (email) {
+            Swal.fire(`Entered email: ${email}`)
+            if (SubmitEvent ) {
+                Swal.fire({
+                    title : 'Gracias por su compra',
+                    text  : 'Será redirigido en 5 segundos!'
+                })
+                carrito= [];
+                setTimeout(() => {   document.location.reload(); }, 5000);
+            }
+        }
+        
+    }
+else{
     Swal.fire({
-        title : 'Desea finalizar la compra?'
-
+        title : 'Falló el pago',
+        text : 'Debe agregar algo al carrito primero'
     })
+}
+
 }
 
 function eliminar(ev){
